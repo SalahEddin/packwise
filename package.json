@@ -32,7 +32,8 @@
     "@storybook/addons": "^5.1.9",
     "@storybook/react": "^5.1.9",
     "enzyme": "^3.10.0",
-    "enzyme-adapter-react-16": "^1.14.0"
+    "enzyme-adapter-react-16": "^1.14.0",
+    "@storybook/theming": "^5.1.11"
   },
   "scripts": {
     "start": "cross-env BROWSER=none craco start",
