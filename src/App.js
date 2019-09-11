@@ -30,7 +30,6 @@ const AppBar = props => (
 
 function App() {
   const [showSidebar, setShowSidebar] = useState(false);
-
   return (
     <ThemeProvider theme={theme}>
       <Global styles={globalStyles} />

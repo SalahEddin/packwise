@@ -42,6 +42,10 @@
     "singleQuote": true,
     "semi": true
   },
+  "prettier": {
+    "singleQuote": true,
+    "semi": true
+  },
   "eslintConfig": {
     "extends": "react-app"
   },
