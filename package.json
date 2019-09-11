@@ -10,7 +10,12 @@
     "url": "git+https://github.com/SalahEddin/packwise.git"
   },
   "dependencies": {
+    "@craco/craco": "^5.2.4",
+    "@emotion/babel-preset-css-prop": "^10.0.14",
+    "@emotion/core": "^10.0.15",
+    "@emotion/styled": "^10.0.15",
     "cross-env": "^5.2.0",
+    "emotion-theming": "^10.0.14",
     "grommet": "^2.7.7",
     "grommet-icons": "^4.3.0",
     "react": "^16.9.0",
@@ -19,8 +24,6 @@
     "styled-components": "^4.3.2"
   },
   "devDependencies": {
-    "@babel/plugin-proposal-class-properties": "^7.5.5",
-    "@emotion/babel-preset-css-prop": "^10.0.17",
     "@storybook/addon-actions": "^5.1.9",
     "@storybook/addon-knobs": "^5.1.9",
     "@storybook/addon-links": "^5.1.9",

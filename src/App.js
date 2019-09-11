@@ -1,4 +1,6 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
+import { Global } from '@emotion/core';
+import { ThemeProvider } from 'emotion-theming';
 import {
   Box,
   Button,
@@ -7,25 +9,10 @@ import {
   Grommet,
   Layer,
   ResponsiveContext
-} from "grommet";
-import { FormClose, Notification } from "grommet-icons";
-
-../../../ 
-
-compoennts/atoms/j]uk
-
-const theme = {
-  global: {
-    colors: {
-      brand: "#3ca300"
-    },
-    font: {
-      family: "Roboto",
-      size: "14px",
-      height: "20px"
-    }
-  }
-};
+} from 'grommet';
+import { FormClose, Notification } from 'grommet-icons';
+import globalStyles from 'base/globalStyles';
+import theme from 'base/theme';
 
 const AppBar = props => (
   <Box
@@ -34,9 +21,9 @@ const AppBar = props => (
     align="center"
     justify="between"
     background="brand"
-    pad={{ left: "medium", right: "small", vertical: "small" }}
+    pad={{ left: 'medium', right: 'small', vertical: 'small' }}
     elevation="medium"
-    style={{ zIndex: "1" }}
+    style={{ zIndex: '1' }}
     {...props}
   />
 );
@@ -45,65 +32,68 @@ function App() {
   const [showSidebar, setShowSidebar] = useState(false);
 
   return (
-    <Grommet theme={theme} full>
-      <ResponsiveContext.Consumer>
-        {size => (
-          <Box fill>
-            <AppBar>
-              <Heading level="4" margin="none">
-                Outdoorzy
-              </Heading>
-              <Button
-                icon={<Notification />}
-                onClick={() => setShowSidebar(!showSidebar)}
-              />
-            </AppBar>
-            <Box direction="row" flex overflow={{ horizontal: "hidden" }}>
-              <Box flex align="center" justify="center">
-                app body
+    <ThemeProvider theme={theme}>
+      <Global styles={globalStyles} />
+      <Grommet theme={theme} full>
+        <ResponsiveContext.Consumer>
+          {size => (
+            <Box fill>
+              <AppBar>
+                <Heading level="4" margin="none">
+                  Packwise
+                </Heading>
+                <Button
+                  icon={<Notification />}
+                  onClick={() => setShowSidebar(!showSidebar)}
+                />
+              </AppBar>
+              <Box direction="row" flex overflow={{ horizontal: 'hidden' }}>
+                <Box flex align="center" justify="center">
+                  app body
+                </Box>
+                {!showSidebar || size !== 'small' ? (
+                  <Collapsible direction="horizontal" open={showSidebar}>
+                    <Box
+                      flex
+                      width="medium"
+                      background="light-2"
+                      elevation="small"
+                      align="center"
+                      justify="center"
+                    >
+                      sidebar
+                    </Box>
+                  </Collapsible>
+                ) : (
+                  <Layer>
+                    <Box
+                      background="light-2"
+                      tag="header"
+                      justify="end"
+                      align="center"
+                      direction="row"
+                    >
+                      <Button
+                        icon={<FormClose />}
+                        onClick={() => setShowSidebar(false)}
+                      />
+                    </Box>
+                    <Box
+                      fill
+                      background="light-2"
+                      align="center"
+                      justify="center"
+                    >
+                      sidebar
+                    </Box>
+                  </Layer>
+                )}
               </Box>
-              {!showSidebar || size !== "small" ? (
-                <Collapsible direction="horizontal" open={showSidebar}>
-                  <Box
-                    flex
-                    width="medium"
-                    background="light-2"
-                    elevation="small"
-                    align="center"
-                    justify="center"
-                  >
-                    sidebar
-                  </Box>
-                </Collapsible>
-              ) : (
-                <Layer>
-                  <Box
-                    background="light-2"
-                    tag="header"
-                    justify="end"
-                    align="center"
-                    direction="row"
-                  >
-                    <Button
-                      icon={<FormClose />}
-                      onClick={() => setShowSidebar(false)}
-                    />
-                  </Box>
-                  <Box
-                    fill
-                    background="light-2"
-                    align="center"
-                    justify="center"
-                  >
-                    sidebar
-                  </Box>
-                </Layer>
-              )}
             </Box>
-          </Box>
-        )}
-      </ResponsiveContext.Consumer>
-    </Grommet>
+          )}
+        </ResponsiveContext.Consumer>
+      </Grommet>
+    </ThemeProvider>
   );
 }
 
