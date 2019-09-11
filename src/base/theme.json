@@ -1,0 +1,16 @@
+{
+  "default": {
+    "fontSize": "16px",
+    "font": "Roboto"
+  },
+  "global": {
+    "colors": {
+      "brand": "#3ca300"
+    }
+  },
+  "font": {
+    "family": "Roboto",
+    "size": "14px",
+    "height": "20px"
+  }
+}
