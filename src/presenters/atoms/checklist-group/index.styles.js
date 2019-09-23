@@ -1,5 +1,10 @@
 import styled from '@emotion/styled';
 
+const GroupHeader = styled('h3')`
+font-size: 27px;
+text-decoration: underline;
+`;
+
 const GroupContainer = styled('div')`
 display: flex;
 flex-direction: column;
@@ -15,4 +20,4 @@ const CheckboxesContainer = styled('div')`
   flex-direction: column;
 `;
 
-export { GroupContainer, CheckboxesContainer };
+export { GroupHeader, GroupContainer, CheckboxesContainer };

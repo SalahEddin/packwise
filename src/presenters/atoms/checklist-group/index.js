@@ -1,11 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import ChecklistItem from 'presenters/atoms/checklist-item';
-import { GroupContainer, CheckboxesContainer } from 'presenters/atoms/checklist-group/index.styles';
+import {
+  GroupHeader,
+  GroupContainer,
+  CheckboxesContainer
+} from 'presenters/atoms/checklist-group/index.styles';
 
 const ChecklistGroup = ({ title, items, onChange }) => (
   <GroupContainer>
-    <h3>{title}</h3>
+    <GroupHeader>{title}</GroupHeader>
     <CheckboxesContainer>
       {items.length > 0 ? (
         items.map(i => (
