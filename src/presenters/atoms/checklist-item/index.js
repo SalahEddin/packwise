@@ -1,16 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { StrikeableText, Checkbox } from 'presenters/atoms/checklist-item/index.styles';
 
 const ChecklistItem = ({ text, isChecked, onChange }) => (
   <div style={{ display: 'flex', alignItems: 'center' }}>
-    <input
+    <Checkbox
       type="checkbox"
       checked={isChecked}
       onChange={e => onChange(e.target.checked)}
     />
-    <p style={{ textDecoration: isChecked ? 'line-through' : 'none' }}>
+    <StrikeableText isStriked={isChecked}>
       {text}
-    </p>
+    </StrikeableText>
   </div>
 );
 

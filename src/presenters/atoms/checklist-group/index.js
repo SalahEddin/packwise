@@ -1,27 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import ChecklistItem from 'presenters/atoms/checklist-item';
+import { GroupContainer, CheckboxesContainer } from 'presenters/atoms/checklist-group/index.styles';
 
 const ChecklistGroup = ({ title, items, onChange }) => (
-  <div
-    style={{
-      display: 'flex',
-      flexDirection: 'column',
-      maxHeight: '700px',
-      width: '100%',
-      justifyContent: 'start',
-      alignItems: 'stretch',
-      boxShadow: '0rem 0.0625rem 0.125rem rgba(0, 0, 0, 0.45)',
-      paddingLeft:'1em'
-    }}
-  >
+  <GroupContainer>
     <h3>{title}</h3>
-    <div
-      style={{
-        display: 'flex',
-        flexDirection: 'column'
-      }}
-    >
+    <CheckboxesContainer>
       {items.length > 0 ? (
         items.map(i => (
           <ChecklistItem
@@ -32,10 +17,10 @@ const ChecklistGroup = ({ title, items, onChange }) => (
           ></ChecklistItem>
         ))
       ) : (
-        <li>{'No items'}</li>
+        <li></li>
       )}
-    </div>
-  </div>
+    </CheckboxesContainer>
+  </GroupContainer>
 );
 
 ChecklistGroup.propTypes = {
