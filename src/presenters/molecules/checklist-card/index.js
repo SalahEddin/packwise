@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import ChecklistGroup from 'presenters/atoms/checklist-group/index';
+import { CardContainer } from 'presenters/molecules/checklist-card/index.styles';
 
 function ChecklistCard(props) {
   ChecklistCard.prototype = {
@@ -40,36 +41,17 @@ function ChecklistCard(props) {
     let groups = groupBy(checklistItems, 'collection');
     if (groups.length <= 0) return <p>{'Nothing to pack.'}</p>;
 
-    return Object.entries(groups).map(([key, values]) => {
-      console.log('test');
-      console.log(values);
-      return (
-        <ChecklistGroup
-          title={key}
-          key={key}
-          items={values}
-          onChange={(key, checkedState) =>
-            onItemStatusChange(key, checkedState)
-          }
-        ></ChecklistGroup>
-      );
-    });
+    return Object.entries(groups).map(([key, values]) => (
+      <ChecklistGroup
+        title={key}
+        key={key}
+        items={values}
+        onChange={(key, checkedState) => onItemStatusChange(key, checkedState)}
+      ></ChecklistGroup>
+    ));
   }
 
-  return (
-    <div
-      style={{
-        display: 'flex',
-        maxHeight: '700px',
-        width: '100%',
-        justifyContent: 'center',
-        alignItems: 'center',
-        boxShadow: '0rem 0.0625rem 0.125rem rgba(0, 0, 0, 0.45)'
-      }}
-    >
-      {generateCardGroups()}
-    </div>
-  );
+  return <CardContainer>{generateCardGroups()}</CardContainer>;
 }
 
 export default ChecklistCard;
