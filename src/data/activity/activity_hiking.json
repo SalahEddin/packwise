@@ -1,0 +1,44 @@
+[
+  {
+    "activity_ID": "activity_one_day_hike",
+    "activity_name": "one-day hiking",
+    "short_description": "",
+    "aliases": ["trekking"],
+    "shelter_needed": false,
+    "equipment": [
+      { "item": "daypack", "essential": true },
+      {
+        "item": "daypack rain cover",
+        "essential": true,
+        "conditions": ["rain"]
+      },
+      { "item": "hiking boots", "essential": true },
+      { "item": "water bottle", "essential": true },
+      { "item": "hiking sticks", "essential": false },
+      { "item": "map & trail guide", "essential": true }
+    ]
+  },
+  {
+    "activity_ID": "activity_multi_day_hike",
+    "activity_name": "multi-day hiking",
+    "short_description": "",
+    "aliases": ["thru-hiking"],
+    "shelter_needed": true,
+    "equipment": [
+      { "item": "backpack", "essential": true },
+      {
+        "item": "daypack rain cover",
+        "essential": true,
+        "conditions": ["rain"]
+      },
+      { "item": "hiking boots", "essential": true },
+      { "item": "hiking shoes", "essential": false },
+      { "item": "water bottle", "essential": true },
+      { "item": "hiking sticks", "essential": true },
+      { "item": "map & trail guide", "essential": true },
+      { "item": "headlamp", "essential": true },
+      { "item": "folding knife", "essential": false },
+      { "item": "water treatment system", "essential": false }
+    ]
+  }
+]

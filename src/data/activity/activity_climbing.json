@@ -1,0 +1,45 @@
+[
+  {
+    "activity_ID": "activity_toprope_climbing",
+    "activity_name": "Top-Rope Climbing",
+    "short_description": "",
+    "aliases": [],
+    "shelter_needed": false,
+    "equipment": [
+      { "item": "chalk", "essential": true },
+      { "item": "brush", "essential": true },
+      { "item": "rope", "essential": true },
+      { "item": "climbing shoes", "essential": true },
+      { "item": "topo", "essential": true }
+    ]
+  },
+  {
+    "activity_ID": "activity_lead_climbing",
+    "activity_name": "Lead Climbing",
+    "short_description": "",
+    "aliases": [],
+    "shelter_needed": false,
+    "equipment": [
+      { "item": "chalk", "essential": true },
+      { "item": "brush", "essential": true },
+      { "item": "rope", "essential": true },
+      { "item": "climbing shoes", "essential": true },
+      { "item": "topo", "essential": true }
+    ]
+  },
+  {
+    "activity_ID": "activity_bouldering",
+    "activity_name": "Bouldering",
+    "short_description": "",
+    "aliases": [],
+    "shelter_needed": false,
+    "equipment": [
+      { "item": "chalk", "essential": true },
+      { "item": "brush", "essential": true },
+      { "item": "rope", "essential": true },
+      { "item": "climbing shoes", "essential": true },
+      { "item": "topo", "essential": true },
+      { "item": "crashpad", "essential": true }
+    ]
+  }
+]

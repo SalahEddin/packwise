@@ -1,0 +1,86 @@
+[
+  {
+    "gear_name": "quick-dry pants",
+    "gear_type": "pants",
+    "aliases": [],
+    "apropriate_conditions": [[]]
+  },
+  {
+    "gear_name": "quick-dry shorts",
+    "gear_type": "pants",
+    "aliases": [],
+    "apropriate_conditions": [["warm"], ["warm", "sunny"]]
+  },
+  {
+    "gear_name": "base layer",
+    "gear_type": "base",
+    "aliases": [],
+    "apropriate_conditions": [["cold"]]
+  },
+  {
+    "gear_name": "leggings",
+    "gear_type": "base",
+    "aliases": [],
+    "apropriate_conditions": [["cold"]]
+  },
+  {
+    "gear_name": "fleece",
+    "gear_type": "base_outwear",
+    "aliases": [],
+    "apropriate_conditions": [["cold"]]
+  },
+  {
+    "gear_name": "beanie",
+    "gear_type": "headwear",
+    "aliases": [],
+    "apropriate_conditions": [["cold"]]
+  },
+  {
+    "gear_name": "hat",
+    "gear_type": "headwear",
+    "aliases": [],
+    "apropriate_conditions": [["sunny"]]
+  },
+  {
+    "gear_name": "gloves",
+    "gear_type": "handwear",
+    "aliases": [],
+    "apropriate_conditions": [["cold"]]
+  },
+  {
+    "gear_name": "windstopper",
+    "gear_type": "condition_protection_gear",
+    "aliases": [],
+    "apropriate_conditions": [["strong_wind"]]
+  },
+  {
+    "gear_name": "rain jacket",
+    "gear_type": "condition_protection_gear",
+    "aliases": [],
+    "apropriate_conditions": [["strong_wind", "rain"], ["rain"], ["snow"]]
+  },
+  {
+    "gear_name": "rain pants",
+    "gear_type": "condition_protection_pants",
+    "aliases": [],
+    "apropriate_conditions": [["rain"], ["snow"]]
+  },
+  {
+    "gear_name": "socks",
+    "gear_type": "socks",
+    "aliases": [],
+    "apropriate_conditions": [[]]
+  },
+  {
+    "gear_name": "wool socks",
+    "gear_type": "socks",
+    "aliases": [],
+    "apropriate_conditions": [["cold"]]
+  },
+  {
+    "gear_name": "sunglasses",
+    "gear_type": "eyewear",
+    "aliases": [],
+    "apropriate_conditions": [["sunny"], ["snow"]]
+  }
+]
