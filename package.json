@@ -1,5 +1,5 @@
 {
-  "name": "outdoors-freshman",
+  "name": "packwise",
   "version": "0.1.0",
   "authors": [
     "Salah Eddin Alshaal",
@@ -28,19 +28,17 @@
     "@storybook/addon-knobs": "^5.1.9",
     "@storybook/addon-links": "^5.1.9",
     "@storybook/addons": "^5.1.9",
-    "@storybook/react": "^5.1.9"
+    "@storybook/react": "^5.1.9",
+    "enzyme": "^3.10.0",
+    "enzyme-adapter-react-16": "^1.14.0"
   },
   "scripts": {
     "start": "cross-env BROWSER=none craco start",
     "build": "cross-env craco build",
-    "test": "cross-env craco build test",
+    "test": "react-scripts test",
     "storybook": "cross-env start-storybook -p 3001 -s public",
     "build:storybook": "cross-env build-storybook -s public",
     "heroku-postbuild": "npm run build"
-  },
-  "prettier": {
-    "singleQuote": true,
-    "semi": true
   },
   "prettier": {
     "singleQuote": true,
