@@ -2,14 +2,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import ChecklistItem from 'presenters/atoms/checklist-item';
 import {
-  GroupHeader,
   GroupContainer,
   CheckboxesContainer
 } from 'presenters/atoms/checklist-group/index.styles';
-
+import { Heading } from 'grommet';
 const ChecklistGroup = ({ title, items, onChange }) => (
   <GroupContainer>
-    <GroupHeader>{title}</GroupHeader>
+    <Heading level={2}>{title}</Heading>
     <CheckboxesContainer>
       {items.length > 0 ? (
         items.map(i => (

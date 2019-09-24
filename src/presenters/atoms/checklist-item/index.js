@@ -1,18 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { StrikeableText, Checkbox } from 'presenters/atoms/checklist-item/index.styles';
+import { StrikeableText } from 'presenters/atoms/checklist-item/index.styles';
+import { CheckBox } from 'grommet';
 
 const ChecklistItem = ({ text, isChecked, onChange }) => (
-  <div style={{ display: 'flex', alignItems: 'center' }}>
-    <Checkbox
-      type="checkbox"
-      checked={isChecked}
-      onChange={e => onChange(e.target.checked)}
-    />
-    <StrikeableText isStriked={isChecked}>
-      {text}
-    </StrikeableText>
-  </div>
+  <CheckBox
+    type="checkbox"
+    label={<StrikeableText isStriked={isChecked}>{text}</StrikeableText>}
+    checked={isChecked}
+    onChange={e => onChange(e.target.checked)}
+  />
 );
 
 ChecklistItem.propTypes = {
