@@ -44,11 +44,6 @@
     "singleQuote": true,
     "semi": true
   },
-  "jest": {
-    "setupFilesAfterEnv": [
-      "<rootDir>src/setupTests.js"
-    ]
-  },
   "eslintConfig": {
     "extends": "react-app"
   },
