@@ -62,3 +62,26 @@ it('multiple matches found', () => {
     ])
   ).toBe(true);
 });
+
+// filterGear Tests
+
+it('Gear match found', () => {
+  const pantsOptions = [
+    {
+      gear_name: 'quick-dry pants',
+      gear_type: 'pants',
+      aliases: [],
+      apropriate_conditions: [[]]
+    },
+    {
+      gear_name: 'quick-dry shorts',
+      gear_type: 'pants',
+      aliases: [],
+      apropriate_conditions: [['warm'], ['warm', 'sunny']]
+    }
+  ];
+  const apropriate_conditions = ['warm'];
+  expect(
+    JSON.stringify(filterShelters(pantsOptions, apropriate_conditions))
+  ).toBe(JSON.stringify([pantsOptions[1]]));
+});

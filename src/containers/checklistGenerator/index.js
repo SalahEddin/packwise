@@ -1,6 +1,6 @@
 // for now this logic will live on the client-side
 
-export function filterShelters(options, selectedConditions) {
+export function filterByConditions(options, selectedConditions) {
   let filtered = options.filter(function(entry) {
     let conditionsSet = entry.apropriate_conditions;
     for (var i = 0, l = conditionsSet.length; i < l; i++) {
@@ -10,6 +10,14 @@ export function filterShelters(options, selectedConditions) {
     return false;
   });
   return filtered;
+}
+
+export function filterShelters(options, selectedConditions) {
+  return filterByConditions(options, selectedConditions);
+}
+
+export function filterGear(options, selectedConditions) {
+  return filterByConditions(options, selectedConditions);
 }
 
 export function primitiveArraysEqual(a, b) {
