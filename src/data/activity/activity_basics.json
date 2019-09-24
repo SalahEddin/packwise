@@ -1,0 +1,27 @@
+[
+  {
+    "activity_ID": "activity_base",
+    "activity_name": "general items",
+    "short_description": "items needed for all activities",
+    "aliases": ["base"],
+    "shelter_needed": false,
+    "equipment": [
+      { "item": "watch", "essential": true },
+      { "item": "headlamp", "essential": false },
+      { "item": "multi-tool", "essential": true },
+      { "item": "spare btteries headlamp", "essential": false },
+      { "item": "towel", "essential": true },
+      { "item": "toothbrush", "essential": true },
+      { "item": "toiletry kit", "essential": true },
+      { "item": "soap", "essential": true },
+      { "item": "lip balm", "essential": true },
+      { "item": "sunscreen", "essential": true },
+      { "item": "toilet paper", "essential": true },
+      { "item": "insect repellant", "essential": true },
+      { "item": "cash", "essential": true },
+      { "item": "ID", "essential": true },
+      { "item": "trip iterenary left with a friend", "essential": true },
+      { "item": "first-aid kit", "essential": true }
+    ]
+  }
+]

@@ -1,0 +1,31 @@
+[
+  {
+    "activity_ID": "activity_make_coffee",
+    "activity_name": "make coffee",
+    "short_description": "",
+    "aliases": ["tea", "hot beverage"],
+    "shelter_needed": false,
+    "equipment": [
+      { "item": "camp stove or burner", "essential": true },
+      { "item": "gas cannister", "essential": true },
+      { "item": "matches or lighter", "essential": true },
+      { "item": "coffee maker", "essential": false },
+      { "item": "cups", "essential": true }
+    ]
+  },
+  {
+    "activity_ID": "activity_make_food",
+    "activity_name": "cook warm food",
+    "short_description": "",
+    "aliases": [],
+    "shelter_needed": false,
+    "equipment": [
+      { "item": "camp stove or burner", "essential": true },
+      { "item": "gas cannister", "essential": true },
+      { "item": "matches or lighter", "essential": true },
+      { "item": "cookware set", "essential": false },
+      { "item": "plates", "essential": true },
+      { "item": "utensils", "essential": true }
+    ]
+  }
+]

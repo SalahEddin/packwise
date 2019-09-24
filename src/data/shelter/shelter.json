@@ -1,0 +1,21 @@
+[
+  {
+    "shelter_name": "tent",
+    "aliases": [],
+    "apropriate_conditions": [[]]
+  },
+  {
+    "shelter_name": "geodesic tent",
+    "aliases": ["semi-geodesic"],
+    "apropriate_conditions": [
+      ["strong_wind"],
+      ["snow"],
+      ["snow", "strong_wind"]
+    ]
+  },
+  {
+    "shelter_name": "hammock",
+    "aliases": ["Mexican hammock"],
+    "apropriate_conditions": [["sunny", "warm"]]
+  }
+]
