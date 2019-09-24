@@ -1,4 +1,9 @@
-import { filterShelters, primitiveArraysEqual } from './index';
+import {
+  filterShelters,
+  primitiveArraysEqual,
+  filterGear,
+  filterEquipment
+} from './index';
 
 // primitiveArraysEqual Tests
 
@@ -81,7 +86,103 @@ it('Gear match found', () => {
     }
   ];
   const apropriate_conditions = ['warm'];
+  expect(JSON.stringify(filterGear(pantsOptions, apropriate_conditions))).toBe(
+    JSON.stringify([pantsOptions[1]])
+  );
+});
+
+// filter equipment
+const activityMockOptions = [
+  {
+    activity_ID: 'activity_base',
+    activity_name: 'general items',
+    short_description: 'items needed for all activities',
+    aliases: ['base'],
+    shelter_needed: false,
+    equipment: [
+      { item: 'watch', essential: true },
+      { item: 'headlamp', essential: false },
+      { item: 'multi-tool', essential: true }
+    ]
+  },
+  {
+    activity_ID: 'activity_make_coffee',
+    activity_name: 'make coffee',
+    short_description: '',
+    aliases: ['tea', 'hot beverage'],
+    shelter_needed: false,
+    equipment: [
+      { item: 'matches or lighter', essential: true },
+      { item: 'coffee maker', essential: false }
+    ]
+  },
+  {
+    activity_ID: 'activity_one_day_hike',
+    activity_name: 'one-day hiking',
+    short_description: '',
+    aliases: ['trekking'],
+    shelter_needed: false,
+    equipment: [
+      { item: 'hiking boots', essential: true },
+      { item: 'hiking sticks', essential: false },
+      { item: 'headlamp', essential: true }
+    ]
+  }
+];
+
+it('no activity chosen', () => {
+  expect(JSON.stringify(filterEquipment(activityMockOptions))).toBe(
+    JSON.stringify([])
+  );
+});
+
+it('invalid activity chosen', () => {
   expect(
-    JSON.stringify(filterShelters(pantsOptions, apropriate_conditions))
-  ).toBe(JSON.stringify([pantsOptions[1]]));
+    JSON.stringify(filterEquipment(activityMockOptions, ['invalid']))
+  ).toBe(JSON.stringify([]));
+});
+
+it('one activity chosen', () => {
+  let expectedEquipment = [
+    { item: 'watch', essential: true },
+    { item: 'headlamp', essential: false },
+    { item: 'multi-tool', essential: true }
+  ];
+  expect(
+    JSON.stringify(filterEquipment(activityMockOptions, ['activity_base']))
+  ).toBe(JSON.stringify(expectedEquipment));
+});
+
+it('multiple non-clashing activities chosen', () => {
+  let expectedEquipment = [
+    { item: 'coffee maker', essential: false },
+    { item: 'headlamp', essential: false },
+    { item: 'matches or lighter', essential: true },
+    { item: 'multi-tool', essential: true },
+    { item: 'watch', essential: true }
+  ];
+  let result = filterEquipment(activityMockOptions, [
+    'activity_base',
+    'activity_make_coffee'
+  ]);
+  result.sort((a, b) => a.item.localeCompare(b.item));
+
+  expect(JSON.stringify(result)).toBe(JSON.stringify(expectedEquipment));
+});
+
+it('multiple clashing activities chosen', () => {
+  let expectedEquipment = [
+    { item: 'headlamp', essential: true },
+    { item: 'hiking boots', essential: true },
+    { item: 'hiking sticks', essential: false },
+    { item: 'multi-tool', essential: true },
+    { item: 'watch', essential: true }
+  ];
+  let result = filterEquipment(activityMockOptions, [
+    'activity_base',
+    'activity_one_day_hike'
+  ]);
+  result.sort((a, b) => a.item.localeCompare(b.item));
+
+  expect(JSON.stringify(result)).toBe(JSON.stringify(expectedEquipment));
 });

@@ -20,6 +20,40 @@ export function filterGear(options, selectedConditions) {
   return filterByConditions(options, selectedConditions);
 }
 
+export function filterEquipment(options, selectedActivities = []) {
+  // no selected activities
+  if (selectedActivities.length === 0) return [];
+  let filtered = options
+    .filter(x => selectedActivities.includes(x.activity_ID))
+    .map(y => y.equipment);
+  // no matching activities
+  if (filtered.length === 0) return [];
+  let flattenedList = [].concat(...filtered);
+  let finalList = [];
+
+  // loop items in every other activity
+  for (var y = 0; y < flattenedList.length; y++) {
+    let currentItem = flattenedList[y];
+    // check if item already exists
+    let duplicates = finalList.filter(x => x.item === currentItem.item);
+    if (duplicates.length === 0) {
+      finalList.push(currentItem);
+    } else {
+      // reduce duplicates
+      let isAlreadyEssential = duplicates.reduce(
+        (prev, curr) => prev.essential || curr.essential
+      ).essential;
+      if (!isAlreadyEssential && currentItem.essential) {
+        // only update it when current item is essential but the one in the final list is not
+        finalList = finalList.map(x =>
+          x.item === currentItem.item ? { ...currentItem } : x
+        );
+      }
+    }
+  }
+  return [].concat(...finalList);
+}
+
 export function primitiveArraysEqual(a, b) {
   if (a === b) return true;
   if (a == null || b == null) return false;
