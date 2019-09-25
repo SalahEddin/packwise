@@ -5,22 +5,22 @@ import Cooking from './../../data/activity/activity_cooking';
 // TODO get this from a weather API by specifying time and location
 export function genWeatherQuestion() {
   return {
-    question: 'what will the weather be like?',
+    label: 'what will the weather be like?',
     options: [
       {
-        description: 'Sunny',
+        label: 'Sunny',
         value: ['sunny']
       },
       {
-        description: 'Rainy',
+        label: 'Rainy',
         value: ['rain']
       },
       {
-        description: 'Rainy & Windy',
+        label: 'Rainy & Windy',
         value: ['rain', 'strong_wind']
       },
       {
-        description: 'Snowy',
+        label: 'Snowy',
         value: ['snow']
       }
     ]
@@ -29,8 +29,8 @@ export function genWeatherQuestion() {
 
 function getActiviesKeyVal(i) {
   return {
-    activity_ID: i.activity_ID,
-    activity_name: i.activity_name
+    value: i.activity_ID,
+    label: i.activity_name
   };
 }
 // TODO: request from packwise-data repo
@@ -41,7 +41,7 @@ export function genActivities() {
     ...Cooking.map(getActiviesKeyVal)
   ];
   return {
-    question: 'What activities do you plan to do',
+    label: 'What activities do you plan to do',
     options: options
   };
 }
