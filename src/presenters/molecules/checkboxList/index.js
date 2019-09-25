@@ -21,7 +21,7 @@ function CheckBoxList(props) {
         return (
           <CheckboxesWrapper key={o.value}>
             <CheckBox
-              checked={o.checked}
+              checked={o.checked || false}
               label={o.label}
               onChange={event =>
                 props.setChecked(o.value, event.target.checked)
