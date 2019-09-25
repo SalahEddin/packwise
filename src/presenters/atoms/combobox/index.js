@@ -10,8 +10,8 @@ function Combobox(props) {
   };
   return (
     <Select
-      valueKey={o => o.id}
-      labelKey={o => o.name}
+      valueKey={o => o.value}
+      labelKey={o => o.label}
       options={props.options}
       value={props.selectedOption}
       onChange={({ option }) => props.onChange(option)}
