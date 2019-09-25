@@ -22,11 +22,9 @@ function Questionnaire(props) {
     activitiesQuestion.options
   );
   function onActivityChecked(activity, checkedState) {
-    console.log(`${activity} is checked: ${checkedState}`);
     let updated = selectedActivities.map(x =>
       x.value === activity ? { ...x, checked: checkedState } : x
     );
-    console.log(updated);
     setSelectedActivities(updated);
   }
   return (
