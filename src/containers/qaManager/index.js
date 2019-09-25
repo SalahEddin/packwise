@@ -1,6 +1,4 @@
-import Climbing from './../../data/activity/activity_climbing';
-import Hiking from './../../data/activity/activity_hiking';
-import Cooking from './../../data/activity/activity_cooking';
+import { loadActivities } from './../../data/client';
 
 // TODO get this from a weather API by specifying time and location
 export function genWeatherQuestion() {
@@ -35,11 +33,8 @@ function getActiviesKeyVal(i) {
 }
 // TODO: request from packwise-data repo
 export function genActivities() {
-  let options = [
-    ...Climbing.map(getActiviesKeyVal),
-    ...Hiking.map(getActiviesKeyVal),
-    ...Cooking.map(getActiviesKeyVal)
-  ];
+  let options = loadActivities().map(getActiviesKeyVal);
+
   return {
     label: 'What activities do you plan to do',
     options: options

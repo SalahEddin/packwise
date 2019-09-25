@@ -7,7 +7,7 @@ function CheckBoxList(props) {
   CheckBoxList.propTypes = {
     setChecked: PropTypes.func.isRequired,
     options: PropTypes.arrayOf(
-      PropTypes.objectOf({
+      PropTypes.shape({
         value: PropTypes.string.isRequired,
         label: PropTypes.string.isRequired,
         checked: PropTypes.bool
@@ -17,19 +17,15 @@ function CheckBoxList(props) {
 
   return (
     <CheckboxesContainer>
-      {props.options.map(o => {
-        return (
-          <CheckboxesWrapper key={o.value}>
-            <CheckBox
-              checked={o.checked || false}
-              label={o.label}
-              onChange={event =>
-                props.setChecked(o.value, event.target.checked)
-              }
-            />
-          </CheckboxesWrapper>
-        );
-      })}
+      {props.options.map(o => (
+        <CheckboxesWrapper key={o.value}>
+          <CheckBox
+            checked={o.checked || false}
+            label={o.label}
+            onChange={event => props.setChecked(o.value, event.target.checked)}
+          />
+        </CheckboxesWrapper>
+      ))}
     </CheckboxesContainer>
   );
 }

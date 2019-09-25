@@ -20,11 +20,11 @@ export function filterGear(options, selectedConditions) {
   return filterByConditions(options, selectedConditions);
 }
 
-export function filterEquipment(options, selectedActivities = []) {
+export function filterEquipment(options, selectedActivitiesId = []) {
   // no selected activities
-  if (selectedActivities.length === 0) return [];
+  if (selectedActivitiesId.length === 0) return [];
   let filtered = options
-    .filter(x => selectedActivities.includes(x.activity_ID))
+    .filter(x => selectedActivitiesId.includes(x.activity_ID))
     .map(y => y.equipment);
   // no matching activities
   if (filtered.length === 0) return [];
