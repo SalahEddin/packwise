@@ -4,46 +4,52 @@ import Card from 'presenters/atoms/card';
 import QuestionContainer from 'presenters/molecules/questionContainer';
 import Combobox from 'presenters/atoms/combobox';
 import CheckboxList from 'presenters/molecules/checkboxList';
-import { genWeatherQuestion, genActivities } from 'containers/qaManager';
 import { Button } from 'grommet';
 import { QaSeperator } from 'presenters/molecules/questionContainer/index.styles';
 
 function Questionnaire(props) {
   Questionnaire.propTypes = {
+    weatherQuestion: PropTypes.objectOf({
+      label: PropTypes.string,
+      options: PropTypes.array.isRequired
+    }),
+    activitiesQuestion: PropTypes.objectOf({
+      label: PropTypes.string,
+      options: PropTypes.array.isRequired
+    }),
     onCompleted: PropTypes.func.isRequired
   };
-  // TODO this will be asynchronous
-  let weatherQuestion = genWeatherQuestion();
-  let activitiesQuestion = genActivities();
   const [selectedWeather, setSelectedWeather] = useState(
-    weatherQuestion.options[0]
+    props.weatherQuestion.options[0]
   );
-  const [selectedActivities, setSelectedActivities] = useState(
-    activitiesQuestion.options
+  const [activityOptionsState, setActivityOptionsState] = useState(
+    props.activitiesQuestion.options
   );
+
   function onActivityChecked(activity, checkedState) {
-    let updated = selectedActivities.map(x =>
+    let updated = activityOptionsState.map(x =>
       x.value === activity ? { ...x, checked: checkedState } : x
     );
-    setSelectedActivities(updated);
+    setActivityOptionsState(updated);
   }
+  
   return (
     <Card
       header={
         'Answer these questions to get a packing list appropriate to your activities'
       }
     >
-      <QuestionContainer label={weatherQuestion.label}>
+      <QuestionContainer label={props.weatherQuestion.label}>
         <Combobox
-          options={weatherQuestion.options}
+          options={props.weatherQuestion.options}
           selectedOption={selectedWeather}
           onChange={o => setSelectedWeather(o)}
         />
       </QuestionContainer>
       <QaSeperator />
-      <QuestionContainer label={activitiesQuestion.label}>
+      <QuestionContainer label={props.activitiesQuestion.label}>
         <CheckboxList
-          options={selectedActivities}
+          options={activityOptionsState}
           setChecked={(o, checkedstate) => onActivityChecked(o, checkedstate)}
         />
       </QuestionContainer>
