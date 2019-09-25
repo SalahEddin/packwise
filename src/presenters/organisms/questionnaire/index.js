@@ -9,11 +9,11 @@ import { QaSeperator } from 'presenters/molecules/questionContainer/index.styles
 
 function Questionnaire(props) {
   Questionnaire.propTypes = {
-    weatherQuestion: PropTypes.objectOf({
+    weatherQuestion: PropTypes.shape({
       label: PropTypes.string,
       options: PropTypes.array.isRequired
     }),
-    activitiesQuestion: PropTypes.objectOf({
+    activitiesQuestion: PropTypes.shape({
       label: PropTypes.string,
       options: PropTypes.array.isRequired
     }),
@@ -32,7 +32,7 @@ function Questionnaire(props) {
     );
     setActivityOptionsState(updated);
   }
-  
+
   return (
     <Card
       header={
@@ -56,8 +56,11 @@ function Questionnaire(props) {
       <Button
         margin="medium"
         label="Submit"
-        onClick={(selectedWeather, selectedActivities) => {
-          props.onCompleted(selectedWeather, selectedActivities);
+        onClick={() => {
+          props.onCompleted(
+            selectedWeather.value,
+            activityOptionsState.filter(x => x.checked)
+          );
         }}
       />
     </Card>
