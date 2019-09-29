@@ -9,7 +9,7 @@ import {
   aggregateChecklists
 } from 'containers/checklistGenerator';
 import Card from 'presenters/atoms/card';
-import ChecklistGroup from 'presenters/atoms/checklist-group';
+import ChecklistGroup from 'presenters/atoms/checklist/checklistGroup';
 import { loadActivities, loadShelters, loadClothing } from 'data/client';
 
 let weatherQuestion = genWeatherQuestion();
