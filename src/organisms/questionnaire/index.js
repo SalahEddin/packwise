@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import Card from 'presenters/atoms/card';
-import QuestionContainer from 'presenters/molecules/questionContainer';
-import Combobox from 'presenters/atoms/combobox';
-import CheckboxList from 'presenters/molecules/checkboxList';
+import Card from 'atoms/card';
+import QuestionContainer from 'molecules/questionContainer';
+import Combobox from 'atoms/combobox';
+import CheckboxList from 'molecules/checkboxList';
 import { Button } from 'grommet';
-import { QaSeperator } from 'presenters/molecules/questionContainer/index.styles';
+import { QaSeperator } from 'molecules/questionContainer/index.styles';
 
 function Questionnaire(props) {
   Questionnaire.propTypes = {

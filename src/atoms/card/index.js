@@ -4,7 +4,7 @@ import {
   CardContainer,
   CardHeader,
   CardBody
-} from 'presenters/atoms/card/index.styles';
+} from 'atoms/card/index.styles';
 
 function Card(props) {
   Card.propTypes = {

@@ -1,7 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import Questionnaire from './index';
-import { genWeatherQuestion, genActivities } from 'containers/qaManager';
+import { genWeatherQuestion, genActivities } from 'utils/qaManager';
 
 let weatherQuestion = genWeatherQuestion();
 let activitiesQuestion = genActivities();

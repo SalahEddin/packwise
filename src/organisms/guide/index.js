@@ -1,22 +1,22 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import Questionnaire from 'presenters/organisms/questionnaire';
-import { genWeatherQuestion, genActivities } from 'containers/qaManager';
+import Questionnaire from 'organisms/questionnaire';
+import { genWeatherQuestion, genActivities } from 'utils/qaManager';
 import {
   filterEquipment,
   filterShelters,
   filterGear,
   aggregateChecklists
-} from 'containers/checklistGenerator';
-import Card from 'presenters/atoms/card';
-import ChecklistGroup from 'presenters/atoms/checklist/checklistGroup';
+} from 'utils/checklistGenerator';
+import Card from 'atoms/card';
+import ChecklistGroup from 'atoms/checklist/ChecklistGroup';
 import { loadActivities, loadShelters, loadClothing } from 'data/client';
 
 let weatherQuestion = genWeatherQuestion();
 let activitiesQuestion = genActivities();
 
-function GuidePage(props) {
-  GuidePage.propTypes = {};
+function Guide(props) {
+  Guide.propTypes = {};
   const [isQuestionnaireComplete, setIsQuestionnaireComplete] = useState(false);
   const [finalList, setFinalList] = useState([]);
 
@@ -39,9 +39,6 @@ function GuidePage(props) {
   }
 
   function updateCheckedItems(id, category, checked) {
-    console.log(`${id} in ${category} checked: ${checked}`);
-    console.log(finalList[category].filter(x => x.key === id));
-    console.log({ ...finalList });
     let processed = {
       ...finalList,
       [category]: finalList[category].map(x =>
@@ -52,7 +49,7 @@ function GuidePage(props) {
   }
 
   return (
-    <div>
+    <div style={{height: '900px', width: "900px", marginTop: '50px'}}>
       <div style={{ display: isQuestionnaireComplete ? 'none' : 'block' }}>
         <Questionnaire
           weatherQuestion={weatherQuestion}
@@ -71,21 +68,21 @@ function GuidePage(props) {
               onChange={(key, checkedState) => {
                 updateCheckedItems(key, 'shelter', checkedState);
               }}
-            ></ChecklistGroup>
+            />
             <ChecklistGroup
               title={'Equipment'}
               items={finalList.equipment}
               onChange={(key, checkedState) => {
                 updateCheckedItems(key, 'equipment', checkedState);
               }}
-            ></ChecklistGroup>
+            />
             <ChecklistGroup
               title={'Clothing'}
               items={finalList.clothing}
               onChange={(key, checkedState) => {
                 updateCheckedItems(key, 'clothing', checkedState);
               }}
-            ></ChecklistGroup>
+            />
           </Card>
         )}
       </div>
@@ -93,4 +90,4 @@ function GuidePage(props) {
   );
 }
 
-export default GuidePage;
+export default Guide;
