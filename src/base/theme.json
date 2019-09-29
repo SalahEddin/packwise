@@ -6,11 +6,26 @@
   "global": {
     "colors": {
       "brand": "#3ca300"
+    },
+    "icon": {
+      "size": {
+        "small": "12px",
+        "medium": "24px",
+        "large": "48px",
+        "xlarge": "96px"
+      }
+    },
+    "font": {
+      "family": "Roboto",
+      "size": "14px",
+      "height": "20px"
     }
   },
-  "font": {
-    "family": "Roboto",
-    "size": "14px",
-    "height": "20px"
+  "card": {
+    "boxShadowColor": "rgba(0, 0, 0, 0.45)",
+    "maxHeight": "450px",
+    "header": {
+      "borderBottom": "rgba(0, 0, 0, 0.45)"
+    }
   }
 }

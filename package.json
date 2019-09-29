@@ -1,5 +1,6 @@
 {
   "name": "packwise",
+  "description": "Guide to help first timers at various outdoors activities",
   "version": "0.1.0",
   "authors": [
     "Salah Eddin Alshaal",
@@ -18,6 +19,7 @@
     "emotion-theming": "^10.0.14",
     "grommet": "^2.7.7",
     "grommet-icons": "^4.3.0",
+    "prop-types": "^15.7.2",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
     "react-scripts": "3.1.1",
@@ -30,12 +32,13 @@
     "@storybook/addons": "^5.1.9",
     "@storybook/react": "^5.1.9",
     "enzyme": "^3.10.0",
-    "enzyme-adapter-react-16": "^1.14.0"
+    "enzyme-adapter-react-16": "^1.14.0",
+    "@storybook/theming": "^5.1.11"
   },
   "scripts": {
     "start": "cross-env BROWSER=none craco start",
     "build": "cross-env craco build",
-    "test": "react-scripts test",
+    "test": "cross-env craco test",
     "storybook": "cross-env start-storybook -p 3001 -s public",
     "build:storybook": "cross-env build-storybook -s public",
     "heroku-postbuild": "npm run build"
