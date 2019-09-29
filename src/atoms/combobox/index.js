@@ -8,6 +8,7 @@ function Combobox(props) {
     options: PropTypes.array.isRequired,
     onChange: PropTypes.func.isRequired
   };
+  
   return (
     <Select
       valueKey={o => o.value}

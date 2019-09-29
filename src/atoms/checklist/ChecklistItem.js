@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { StrikeableText } from 'presenters/atoms/checklist/index.styles';
+import { StrikeableText } from 'atoms/checklist/index.styles';
 import { CheckBox } from 'grommet';
 
 function ChecklistItem({ text, isChecked, onChange }) {

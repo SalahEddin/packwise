@@ -1,8 +1,8 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withKnobs, boolean } from '@storybook/addon-knobs/react';
-import ChecklistItem from 'presenters/atoms/checklist/ChecklistItem';
-import ChecklistGroup from 'presenters/atoms/checklist/ChecklistGroup';
+import ChecklistItem from 'atoms/checklist/ChecklistItem';
+import ChecklistGroup from 'atoms/checklist/ChecklistGroup';
 
 let items = [
   { key: '1', text: 'Potato', isChecked: false },

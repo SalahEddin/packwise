@@ -1,10 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import ChecklistItem from 'presenters/atoms/checklist/ChecklistItem';
+import ChecklistItem from 'atoms/checklist/ChecklistItem';
 import {
   GroupContainer,
   CheckboxesContainer
-} from 'presenters/atoms/checklist/index.styles';
+} from 'atoms/checklist/index.styles';
 import { Heading } from 'grommet';
 
 function ChecklistGroup({ title, items, onChange }) {

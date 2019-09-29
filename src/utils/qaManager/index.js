@@ -1,4 +1,4 @@
-import { loadActivities } from './../../data/client';
+import { loadActivities } from '../../data/client';
 
 // TODO get this from a weather API by specifying time and location
 export function genWeatherQuestion() {

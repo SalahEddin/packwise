@@ -2,7 +2,7 @@ import React from 'react';
 
 import { storiesOf } from '@storybook/react';
 import { withKnobs, boolean } from '@storybook/addon-knobs/react';
-import Card from 'presenters/atoms/card';
+import Card from 'atoms/card';
 import { Save } from 'grommet-icons';
 
 const card = storiesOf('Atoms|Card', module).addDecorator(withKnobs);

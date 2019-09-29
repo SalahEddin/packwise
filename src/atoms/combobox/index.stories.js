@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { storiesOf } from '@storybook/react';
-import Combobox from 'presenters/atoms/combobox';
+import Combobox from 'atoms/combobox';
 
 const options = [
   { id: 1, name: 'test 1' },

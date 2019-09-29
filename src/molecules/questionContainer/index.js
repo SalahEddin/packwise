@@ -10,7 +10,7 @@ function QuestionContainer(props) {
   };
   return (
     <QaContainer>
-      <Heading margin="none" level={3}>
+      <Heading color={{"dark": "light-1", "light": "dark-2"}} margin="small" level={2}>
         {props.label}
       </Heading>
       <QaSeperator />
