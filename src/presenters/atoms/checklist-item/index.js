@@ -6,7 +6,7 @@ import { CheckBox } from 'grommet';
 function ChecklistItem({ text, isChecked, onChange }) {
   ChecklistItem.propTypes = {
     text: PropTypes.string.isRequired,
-    isChecked: PropTypes.bool.isRequired,
+    isChecked: PropTypes.bool,
     onChange: PropTypes.func.isRequired
   };
   return (
