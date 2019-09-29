@@ -5,8 +5,11 @@ import { genWeatherQuestion, genActivities } from 'containers/qaManager';
 import {
   filterEquipment,
   filterShelters,
-  filterGear
+  filterGear,
+  aggregateChecklists
 } from 'containers/checklistGenerator';
+import Card from 'presenters/atoms/card';
+import ChecklistGroup from 'presenters/atoms/checklist-group';
 import { loadActivities, loadShelters, loadClothing } from 'data/client';
 
 let weatherQuestion = genWeatherQuestion();
@@ -15,6 +18,8 @@ let activitiesQuestion = genActivities();
 function GuidePage(props) {
   GuidePage.propTypes = {};
   const [isQuestionnaireComplete, setIsQuestionnaireComplete] = useState(false);
+  const [finalList, setFinalList] = useState([]);
+
   function onQuestionnaireComplete(weather, activities) {
     setIsQuestionnaireComplete(true);
     let allActivities = loadActivities();
@@ -25,16 +30,30 @@ function GuidePage(props) {
     let matchedEquipment = filterEquipment(allActivities, activityIds);
     let matchedShelter = filterShelters(shelters, weather);
     let matchedGear = filterGear(clothing, weather);
-    console.log(matchedEquipment);
-    console.log(matchedShelter);
-    console.log(matchedGear);
+    let list = aggregateChecklists(
+      matchedShelter,
+      matchedEquipment,
+      matchedGear
+    );
+    setFinalList(list);
+  }
+
+  function updateCheckedItems(id, category, checked) {
+    console.log(`${id} in ${category} checked: ${checked}`);
+    console.log(finalList[category].filter(x => x.key === id));
+    console.log({ ...finalList });
+    let processed = {
+      ...finalList,
+      [category]: finalList[category].map(x =>
+        x.key === id ? { ...x, isChecked: checked } : x
+      )
+    };
+    setFinalList(processed);
   }
 
   return (
     <div>
-      <div
-        style={{ visibility: isQuestionnaireComplete ? 'collapse' : 'visible' }}
-      >
+      <div style={{ display: isQuestionnaireComplete ? 'none' : 'block' }}>
         <Questionnaire
           weatherQuestion={weatherQuestion}
           activitiesQuestion={activitiesQuestion}
@@ -43,10 +62,32 @@ function GuidePage(props) {
           }
         />
       </div>
-      <div
-        style={{ visibility: isQuestionnaireComplete ? 'visible' : 'collapse' }}
-      >
-        {/* checklist generator */}
+      <div style={{ display: isQuestionnaireComplete ? 'block' : 'none' }}>
+        {isQuestionnaireComplete && (
+          <Card header={'Packing List'}>
+            <ChecklistGroup
+              title={'Shelter'}
+              items={finalList.shelter}
+              onChange={(key, checkedState) => {
+                updateCheckedItems(key, 'shelter', checkedState);
+              }}
+            ></ChecklistGroup>
+            <ChecklistGroup
+              title={'Equipment'}
+              items={finalList.equipment}
+              onChange={(key, checkedState) => {
+                updateCheckedItems(key, 'equipment', checkedState);
+              }}
+            ></ChecklistGroup>
+            <ChecklistGroup
+              title={'Clothing'}
+              items={finalList.clothing}
+              onChange={(key, checkedState) => {
+                updateCheckedItems(key, 'clothing', checkedState);
+              }}
+            ></ChecklistGroup>
+          </Card>
+        )}
       </div>
     </div>
   );
