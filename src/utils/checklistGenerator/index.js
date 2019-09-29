@@ -71,24 +71,21 @@ export function primitiveArraysEqual(a, b) {
 }
 
 export function aggregateChecklists(shelterList, equipmentList, clothingList) {
-  return [
-    ...shelterList.map(x => ({
-      label: x.shelter_name,
-      value: x.shelter_name,
-      group: 'Shelter',
+  return {
+    shelter: shelterList.map(x => ({
+      text: x.shelter_name,
+      key: x.shelter_name,
       essential: true
     })),
-    ...equipmentList.map(x => ({
-      label: x.item,
-      value: x.item,
-      group: 'Equipment',
+    equipment: equipmentList.map(x => ({
+      text: x.item,
+      key: x.item,
       essential: x.essential
     })),
-    ...clothingList.map(x => ({
-      label: x.gear_name,
-      value: x.gear_name,
-      group: 'Clothing',
+    clothing: clothingList.map(x => ({
+      text: x.gear_name,
+      key: x.gear_name,
       essential: true
     }))
-  ];
+  };
 }
