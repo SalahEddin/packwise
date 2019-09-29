@@ -2,8 +2,7 @@ import {
   filterShelters,
   primitiveArraysEqual,
   filterGear,
-  filterEquipment,
-  aggregateChecklists
+  filterEquipment
 } from './index';
 
 // primitiveArraysEqual Tests
@@ -186,21 +185,4 @@ it('multiple clashing activities chosen', () => {
   result.sort((a, b) => a.item.localeCompare(b.item));
 
   expect(JSON.stringify(result)).toBe(JSON.stringify(expectedEquipment));
-});
-
-// aggregate lists
-it('non-empty lists', () => {
-  let equipment = [{item: "daypack", essential: true}];
-  let shelter = [{shelter_name: "geodesic tent", aliases: [], apropriate_conditions: []}];
-  let clothing = [{gear_name: "sunglasses", gear_type: "eyewear", aliases: [], apropriate_conditions: []}]
-  let result = aggregateChecklists(shelter, equipment, clothing);
-  expect(result.length).toBe(3);
-});
-
-it('one empty list', () => {
-  let equipment = [];
-  let shelter = [{shelter_name: "geodesic tent", aliases: [], apropriate_conditions: []}];
-  let clothing = [{gear_name: "sunglasses", gear_type: "eyewear", aliases: [], apropriate_conditions: []}]
-  let result = aggregateChecklists(shelter, equipment, clothing);
-  expect(result.length).toBe(2);
 });
