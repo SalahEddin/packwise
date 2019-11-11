@@ -11,6 +11,7 @@ import {
 import Card from 'atoms/card';
 import ChecklistGroup from 'atoms/checklist/ChecklistGroup';
 import { loadActivities, loadShelters, loadClothing } from 'data/client';
+import useGiphy from 'utils/useGiphy';
 
 let weatherQuestion = genWeatherQuestion();
 let activitiesQuestion = genActivities();
@@ -19,6 +20,7 @@ function Guide(props) {
   Guide.propTypes = {};
   const [isQuestionnaireComplete, setIsQuestionnaireComplete] = useState(false);
   const [finalList, setFinalList] = useState([]);
+  const [giphyResults, giphyLoading, giphySuccessful] = useGiphy('outdoors');
 
   function onQuestionnaireComplete(weather, activities) {
     setIsQuestionnaireComplete(true);
@@ -49,8 +51,16 @@ function Guide(props) {
   }
 
   return (
-    <div style={{height: '900px', width: "900px", marginTop: '50px'}}>
-      <div style={{ display: isQuestionnaireComplete ? 'none' : 'block' }}>
+    <div style={{ height: '900px', width: '900px', marginTop: '50px' }}>
+      <div
+        style={{
+          display: isQuestionnaireComplete ? 'none' : 'block',
+          height: '100%'
+        }}
+      >
+        {!giphyLoading && giphySuccessful && (
+          <video autoPlay loop src={giphyResults[0]} />
+        )}
         <Questionnaire
           weatherQuestion={weatherQuestion}
           activitiesQuestion={activitiesQuestion}
@@ -59,7 +69,12 @@ function Guide(props) {
           }
         />
       </div>
-      <div style={{ display: isQuestionnaireComplete ? 'block' : 'none' }}>
+      <div
+        style={{
+          display: isQuestionnaireComplete ? 'block' : 'none',
+          height: '100%'
+        }}
+      >
         {isQuestionnaireComplete && (
           <Card header={'Packing List'}>
             <ChecklistGroup
