@@ -23,7 +23,7 @@
   },
   "card": {
     "boxShadowColor": "rgba(0, 0, 0, 0.45)",
-    "maxHeight": "450px",
+    "maxHeight": "100%",
     "header": {
       "borderBottom": "rgba(0, 0, 0, 0.45)"
     }
