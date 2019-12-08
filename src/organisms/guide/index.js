@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import PropTypes from 'prop-types';
 import Questionnaire from 'organisms/questionnaire';
 import { genWeatherQuestion, genActivities } from 'utils/qaManager';
 import {
@@ -58,9 +57,9 @@ function Guide(props) {
           height: '100%'
         }}
       >
-        {!giphyLoading && giphySuccessful && (
+        {/* {!giphyLoading && giphySuccessful && (
           <video autoPlay loop src={giphyResults[0]} />
-        )}
+        )} */}
         <Questionnaire
           weatherQuestion={weatherQuestion}
           activitiesQuestion={activitiesQuestion}

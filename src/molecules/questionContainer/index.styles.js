@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 
-const QaSeperator = styled('section')`
+const QaSeparator = styled('section')`
   margin: ${props => (props.margin ? props.margin : '1rem')};
   padding: ${props => (props.padding ? props.padding : '0')};
 `;
@@ -12,4 +12,4 @@ const QaContainer = styled('div')`
   padding: ${props => (props.padding ? props.padding : '0 1rem')};
 `;
 
-export { QaSeperator, QaContainer };
+export { QaSeparator, QaContainer };

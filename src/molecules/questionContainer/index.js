@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Heading } from 'grommet';
-import { QaContainer, QaSeperator } from './index.styles';
+import { QaContainer, QaSeparator } from './index.styles';
 
 function QuestionContainer(props) {
   QuestionContainer.propTypes = {
@@ -10,10 +10,10 @@ function QuestionContainer(props) {
   };
   return (
     <QaContainer>
-      <Heading color={{"dark": "light-1", "light": "dark-2"}} margin="small" level={2}>
+      <Heading style={{marginLeft:0}} color={{"dark": "light-1", "light": "dark-2"}} margin="small" level={2}>
         {props.label}
       </Heading>
-      <QaSeperator />
+      <QaSeparator />
       {props.children}
     </QaContainer>
   );
