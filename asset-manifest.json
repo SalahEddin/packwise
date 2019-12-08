@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.js": "/packwise/static/js/main.548331a7.chunk.js",
-    "main.js.map": "/packwise/static/js/main.548331a7.chunk.js.map",
+    "main.js": "/packwise/static/js/main.6683286a.chunk.js",
+    "main.js.map": "/packwise/static/js/main.6683286a.chunk.js.map",
     "runtime~main.js": "/packwise/static/js/runtime~main.c5dbf0ff.js",
     "runtime~main.js.map": "/packwise/static/js/runtime~main.c5dbf0ff.js.map",
-    "static/js/2.8010314d.chunk.js": "/packwise/static/js/2.8010314d.chunk.js",
-    "static/js/2.8010314d.chunk.js.map": "/packwise/static/js/2.8010314d.chunk.js.map",
+    "static/js/2.33ddcf36.chunk.js": "/packwise/static/js/2.33ddcf36.chunk.js",
+    "static/js/2.33ddcf36.chunk.js.map": "/packwise/static/js/2.33ddcf36.chunk.js.map",
     "index.html": "/packwise/index.html",
-    "precache-manifest.c6c321e38cd1be948a3549aa3c385efc.js": "/packwise/precache-manifest.c6c321e38cd1be948a3549aa3c385efc.js",
+    "precache-manifest.4f863bcf7710017ade7ff6fd0f9a4492.js": "/packwise/precache-manifest.4f863bcf7710017ade7ff6fd0f9a4492.js",
     "service-worker.js": "/packwise/service-worker.js"
   }
 }
