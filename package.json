@@ -2,6 +2,7 @@
   "name": "packwise",
   "description": "Guide to help first timers at various outdoors activities",
   "version": "0.1.0",
+  "homepage": "http://salaheddin.github.io/packwise",
   "authors": [
     "Salah Eddin Alshaal",
     "Vasilis Koukoutis"
