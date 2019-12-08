@@ -5,7 +5,7 @@ import QuestionContainer from 'molecules/questionContainer';
 import Combobox from 'atoms/combobox';
 import CheckboxList from 'molecules/checkboxList';
 import { Button } from 'grommet';
-import { QaSeperator } from 'molecules/questionContainer/index.styles';
+import { QaSeparator } from 'molecules/questionContainer/index.styles';
 
 function Questionnaire(props) {
   Questionnaire.propTypes = {
@@ -46,16 +46,19 @@ function Questionnaire(props) {
           onChange={o => setSelectedWeather(o)}
         />
       </QuestionContainer>
-      <QaSeperator />
+      <QaSeparator margin="14px" />
       <QuestionContainer label={props.activitiesQuestion.label}>
         <CheckboxList
           options={activityOptionsState}
-          setChecked={(o, checkedstate) => onActivityChecked(o, checkedstate)}
+          setChecked={(o, checkedState) => onActivityChecked(o, checkedState)}
         />
       </QuestionContainer>
       <Button
         margin="medium"
         label="Submit"
+        primary={true}
+        type="submit"
+        hoverIndicator={true}
         onClick={() => {
           props.onCompleted(
             selectedWeather.value,
