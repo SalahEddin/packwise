@@ -2,7 +2,7 @@
   "name": "packwise",
   "description": "Guide to help first timers at various outdoors activities",
   "version": "0.1.0",
-  "homepage": "http://salaheddin.github.io/packwise",
+  "homepage": "https://salaheddin.github.io/packwise",
   "authors": [
     "Salah Eddin Alshaal",
     "Vasilis Koukoutis"
@@ -23,6 +23,7 @@
     "prop-types": "^15.7.2",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
+    "react-router-dom": "^5.1.2",
     "react-scripts": "3.1.1",
     "styled-components": "^4.3.2"
   },
@@ -35,7 +36,8 @@
     "@storybook/theming": "^5.1.11",
     "enzyme": "^3.10.0",
     "enzyme-adapter-react-16": "^1.14.0",
-    "eslint-plugin-react-hooks": "^2.1.1"
+    "eslint-plugin-react-hooks": "^2.1.1",
+    "gh-pages": "^2.1.1"
   },
   "scripts": {
     "start": "cross-env BROWSER=none craco start",
@@ -43,7 +45,9 @@
     "test": "cross-env craco test",
     "storybook": "cross-env start-storybook -p 3001 -s public",
     "build:storybook": "cross-env build-storybook -s public",
-    "heroku-postbuild": "npm run build"
+    "heroku-postbuild": "npm run build",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "prettier": {
     "singleQuote": true,
